@@ -1,0 +1,40 @@
+//- Copyright 2018 Veronika Thelen
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ 
+ Modified to display Addresses instead of Books
+
+extends ../base.pug
+
+block content
+  h3 #{action} contact
+  form(method="POST")
+    .form-group
+      label(for="firstName") First Name
+      input.form-control(type="text", name="firstName", id="firstName", value=contact.firstName)
+    .form-group
+      label(for="lastName") Last Name
+      input.form-control(type="text", name="lastName", id="lastName", value=contact.lastName)
+    .form-group
+      label(for="address") Address
+      input.form-control(type="text", name="address", id="address", value=contact.address)
+    .form-group
+      label(for="city") City
+      input.form-control(type="text", name="city", id="city", value=contact.city)
+    .form-group
+      label(for="state") State
+      input.form-control(type="text", name="state", id="state", value=contact.state)
+    .form-group
+      label(for="zip") Zip
+      input.form-control(type="text", name="zip", id="zip", value=contact.zip)
+    .form-group
+    button.btn.btn-success(type="submit") Save

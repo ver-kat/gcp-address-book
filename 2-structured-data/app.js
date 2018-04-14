@@ -1,4 +1,5 @@
-// Copyright 2017, Google, Inc.
+// Copyright 2018 Veronika Thelen
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -28,9 +29,13 @@ app.set('trust proxy', true);
 app.use('/books', require('./books/crud'));
 app.use('/api/books', require('./books/api'));
 
-// Redirect root to /books
+// Contacts (added)
+app.use('/contacts', require('./contacts/crud'));
+app.use('/api/contacts', require('./contacts/api'));
+
+// Redirect root to /contacts, modified from redirecting to /books
 app.get('/', (req, res) => {
-  res.redirect('/books');
+  res.redirect('/contacts');
 });
 
 // Basic 404 handler
@@ -55,4 +60,4 @@ if (module === require.main) {
   });
 }
 
-module.exports = app;
+module.exports = {app};
